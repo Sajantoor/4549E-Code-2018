@@ -23,19 +23,22 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
      }
 
       if (master.get_digital(DIGITAL_A)) {
-        puncher.move(127);
+        shoot();
       }
 
-      if (master.get_digital(DIGITAL_X)) {
-        lift.move(-127);
+      if (master.get_digital_new_press(DIGITAL_X)) {
+          liftFunc(true);
       }
 
-      if (master.get_digital(DIGITAL_B)) {
-        lift.move(127);
+      if (master.get_digital_new_press(DIGITAL_B)) {
+        liftFunc(false);
       }
+
+      if (master.get_digital(DIGITAL_UP)) {
+        autonomous();
+      }
+
       // reset motors to 0 position when button is not pressed
-      lift.move(0);
-      puncher.move(0);
       intake.move(0);
       pivot.move(0);
 

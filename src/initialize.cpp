@@ -9,6 +9,7 @@ Motor pivot(7, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
 Motor intake(4, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
 Motor puncher(3, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
 Motor lift(2, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
+const float PI = 3.14159265358979323846;
 
 void on_center_button() {
 	static bool pressed = false;

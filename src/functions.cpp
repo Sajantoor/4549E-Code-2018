@@ -7,3 +7,21 @@ void drive(int leftVelocity, int rightVelocity) {
   right_f.move(rightVelocity);
   right_b.move(rightVelocity);
 }
+
+void shoot() {
+  puncher.move(127);
+  delay(3000);
+  puncher.move(0);
+}
+
+void liftFunc(bool up) {
+  if (up) {
+    lift.move(127);
+    delay(1000);
+    lift.move(0);
+  } else {
+    lift.move(-127);
+    delay(1000);
+    lift.move(0);
+  }
+}
