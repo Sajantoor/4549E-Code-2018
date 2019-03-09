@@ -1,14 +1,14 @@
 #include "main.h"
 #include "variables.h"
-pros::ADIAnalogIn sensor (1); // potentiometer port declaration
-pros::Motor left_mtr(19);
-pros::Motor leftfront_mtr(8);
-pros::Motor right_mtr(20);
-pros::Motor rightfront_mtr(5);
-pros::Motor pivot_mtr(7);
-pros::Motor intake_mtr(4);
-pros::Motor puncher_mtr(3);
-pros::Motor lift_mtr(2);
+ADIAnalogIn sensor (1); // potentiometer port declaration
+Motor left_f(8, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
+Motor left_b(19, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
+Motor right_f(5, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
+Motor right_b(20, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
+Motor pivot(7, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
+Motor intake(4, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
+Motor puncher(3, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
+Motor lift(2, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
 
 void on_center_button() {
 	static bool pressed = false;

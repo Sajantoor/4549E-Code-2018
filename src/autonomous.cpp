@@ -1,6 +1,5 @@
 #include "main.h"
 #include "variables.h"
-// this is a change
 
 /*
  * Runs the user autonomous code. This function will be started in its own task
@@ -15,49 +14,49 @@
 */
 
 
-void drive(int distance, int velocity) {
-    left_mtr.move_relative(distance, velocity);
-    leftfront_mtr.move_relative(distance, velocity);
-    right_mtr.move_relative(-distance, -velocity);
-    rightfront_mtr.move_relative(-distance, -velocity);
+void driveForward(int distance, int velocity) {
+    left_b.move_relative(distance, velocity);
+    left_f.move_relative(distance, velocity);
+    right_b.move_relative(-distance, -velocity);
+    right_f.move_relative(-distance, -velocity);
   }
 
   void driveback(int distance, int velocity) {
-      left_mtr.move_relative(-distance, -velocity);
-      leftfront_mtr.move_relative(-distance, -velocity);
-      right_mtr.move_relative(distance, velocity);
-      rightfront_mtr.move_relative(distance, velocity);
+      left_b.move_relative(-distance, -velocity);
+      left_f.move_relative(-distance, -velocity);
+      right_b.move_relative(distance, velocity);
+      right_f.move_relative(distance, velocity);
     }
 
     void pivot_up (int distance, int velocity) {
-      pivot_mtr.move_relative(distance,velocity);
+      pivot.move_relative(distance,velocity);
     }
 
     void pivot_down(int distance,int velocity) {
-      pivot_mtr.move_relative(-distance,-velocity);
+      pivot.move_relative(-distance,-velocity);
     }
 
     void turnright(int distance,int velocity) {
-      left_mtr.move_relative(distance, velocity);
-      leftfront_mtr.move_relative(distance, velocity);
-      right_mtr.move_relative(distance, velocity);
-      rightfront_mtr.move_relative(distance, velocity);
+      left_b.move_relative(distance, velocity);
+      left_f.move_relative(distance, velocity);
+      right_b.move_relative(distance, velocity);
+      right_f.move_relative(distance, velocity);
     }
 
     void turnleft(int distance,int velocity) {
-     left_mtr.move_relative(-distance, -velocity);
-     leftfront_mtr.move_relative(-distance, -velocity);
-     right_mtr.move_relative(-distance, -velocity);
-     rightfront_mtr.move_relative(-distance, -velocity);
+     left_b.move_relative(-distance, -velocity);
+     left_f.move_relative(-distance, -velocity);
+     right_b.move_relative(-distance, -velocity);
+     right_f.move_relative(-distance, -velocity);
     }
 
 
-    void intake (int distance, int velocity) {
-      intake_mtr.move_relative(distance,velocity);
+    void intakeFunc (int distance, int velocity) {
+      intake.move_relative(distance,velocity);
     }
 
     void shoot(int distance,int velocity) {
-      puncher_mtr .move_relative(-distance,-velocity);
+      puncher .move_relative(-distance,-velocity);
     }
 
 
@@ -66,8 +65,8 @@ void autonomous() {
       if (sensor.get_value() < 400) {// red front
         driveback(3000,120);//towards cap
         pros::delay(1950);
-        intake(1200,200); //intake the ball
-        drive(2900,120); //back to starting tile
+        intakeFunc(1200,200); //intake the ball
+        driveForward(2900,120); //back to starting tile
         pros::delay(2250);
         turnleft(690,120); //facing flags
         pros::delay(1550);
@@ -76,19 +75,19 @@ void autonomous() {
         shoot(1000,200); // shoot top flag
         pros::delay(950);
         driveback(1500,100); // closer to flags
-        intake(2000,200); // intake if ball is there
+        intakeFunc(2000,200); // intake if ball is there
         pros::delay(1450);
         shoot(1000,200); // shoot middle flag
         pivot_down(1000,200); // flipper down
         pros::delay(1250);
         turnleft(730,175); // facing flat cap
         pros::delay(1150);
-        drive(230,80); // flipper under flat cap
+        driveForward(230,80); // flipper under flat cap
         pivot_up(1000,200); // flip cap
         pros::delay(1450);
         turnleft(940,125); // facing flags
         pros::delay(1250);
-        drive(1500,190); // into flags
+        driveForward(1500,190); // into flags
          pros::delay(1500);
         pivot_down(300,190); // flipper down
         pros::delay(1000);
@@ -111,8 +110,8 @@ void autonomous() {
           pros::delay(1800);
         // turnright(660,150);//facing angled cap
         // pros::delay(1000);
-        drive(470,100);//
-        intake(2000,120);
+        driveForward(470,100);//
+        intakeFunc(2000,120);
         pros::delay(2000);
         pros::delay(1800);
         shoot(1000,200);
@@ -121,17 +120,17 @@ void autonomous() {
         // pros::delay(1800);
         // turnleft(760,150);//facing platform
         // pros::delay(1800);
-        // drive(300,70);//upto platform
+        // driveForward(300,70);//upto platform
         // pros::delay(1800);
-        // drive(1200,150);//onto platform
+        // driveForward(1200,150);//onto platform
         // pros::delay(1800);
       }
 
     else if(1000 < sensor.get_value() && sensor.get_value() < 1400) {//blue front
        driveback(3000,100);//towards cap
        pros::delay(1950);
-       intake(1200,200); //intake the ball
-       drive(2900,100); //back to starting tile
+       intakeFunc(1200,200); //intake the ball
+       driveForward(2900,100); //back to starting tile
        pros::delay(2250);
        turnright(680,120); //facing flags
        pros::delay(1550);
@@ -140,19 +139,19 @@ void autonomous() {
        shoot(1000,200); // shoot top flag
        pros::delay(950);
        driveback(1500,100); // closer to flags
-       intake(2000,200); // intake if ball is there
+       intakeFunc(2000,200); // intake if ball is there
        pros::delay(1450);
        shoot(1000,200); // shoot middle flag
        pivot_down(1000,200); // flipper down
        pros::delay(1250);
        turnright(710,175); // facing flat cap
        pros::delay(1350);
-       drive(200,80); // flipper under flat cap
+       driveForward(200,80); // flipper under flat cap
        pivot_up(1000,200); // flip cap
        pros::delay(1450);
        turnright(970,175); // facing flags
        pros::delay(1450);
-       drive(1300,190); // into flags
+       driveForward(1300,190); // into flags
         pros::delay(1500);
        pivot_down(1000,190); // flipper down
        pros::delay(1000);
@@ -163,28 +162,28 @@ void autonomous() {
   else if(1500 < sensor.get_value() && sensor.get_value() < 1900) {//blue back
       driveback(3000,100);      //towards cap
       pros::delay(1950);
-      intake(1200,200);    //intake the ball
+      intakeFunc(1200,200);    //intake the ball
       pros::delay(2000);
-      drive(2400,150);
+      driveForward(2400,150);
       pros::delay(1500);
       turnright(524,150);     //turn towards flag on the another corner
       pros::delay(2000);
       shoot(1000,200);     //shoot the middle flag
       pros::delay(1500);
-      drive(800,200);
-      intake(1200,200);
+      driveForward(800,200);
+      intakeFunc(1200,200);
       pros::delay(1500);
       shoot(1000,200);
       pros::delay(1500);
   }
 
   else if (2000 < sensor.get_value() && sensor.get_value() < 2400){//skill
-      drive(1350,175);//drive into corner
+      driveForward(1350,175);//drive into corner
       pros::delay(1000);
       turnleft(760,190);//90 facing cap
       pros::delay(750);
       pivot_down(1000,150);//flipper down
-      drive(2500,150);//drive into cap
+      driveForward(2500,150);//drive into cap
       pros::delay(1800);
       pivot_up(1000,175);//flip cap                                           cap 1
       pros::delay(750);
@@ -194,11 +193,11 @@ void autonomous() {
       pros::delay(750);
       driveback(700,70);// lineup
       pros::delay(1200);
-      drive(1800,175);// drive upwards
+      driveForward(1800,175);// drive upwards
       pros::delay(1200);
       turnright(775,190);//
       pros::delay(1200);
-      drive(2100,200);// into cap
+      driveForward(2100,200);// into cap
       pivot_down(750,180);//                                                  cap 2
       pros::delay(1800);
       driveback(3100,175);//drive back
@@ -206,17 +205,17 @@ void autonomous() {
       pros::delay(2000);
       driveback(400,70);// lineup
       pros::delay(2000);
-      drive(750,125);// out from wall
+      driveForward(750,125);// out from wall
       pros::delay(1300);
       turnleft(750,190);//turn facing upwards
       pros::delay(1000);
-      drive(3100,175);//drive parrallel with cap
+      driveForward(3100,175);//drive parrallel with cap
       pros::delay(1500);
       turnright(790,150);//turn towards cap
       pros::delay(1000);
       driveback(1250,60);// lineup
       pros::delay(2000);
-      drive(3600,200);//drive into cap
+      driveForward(3600,200);//drive into cap
       pivot_down(750,150);//                                                  cap 3
       pros::delay(1800);
       driveback(1800,175);//back to flat cap
@@ -226,7 +225,7 @@ void autonomous() {
       pros::delay(1200);
       turnleft(745,190);// facing cap
       pros::delay(1200);
-      drive(1000,90);// drive into cap
+      driveForward(1000,90);// drive into cap
       pros::delay(1200);
       pivot_up(1000,200);//                                                   cap 4
       pros::delay(1200);
@@ -234,15 +233,15 @@ void autonomous() {
       pros::delay(1000);
       turnleft(770,190);// facing left side of field
       pros::delay(1000);
-      drive(1450,175);// upto wall
+      driveForward(1450,175);// upto wall
       pros::delay(1400);
-      drive(700,70);// lineup
+      driveForward(700,70);// lineup
       pros::delay(1400);
       driveback(500,100);// realign with flag
       pros::delay(1400);
       turnright(775,190);// facing flag
       pros::delay(1000);
-      drive(3200,150);//drive into flag            thunbs up                   flag
+      driveForward(3200,150);//drive into flag            thunbs up                   flag
       pros::delay(2000);
       driveback(5200,175);//back to platform
       pros::delay(2500);
@@ -250,12 +249,12 @@ void autonomous() {
       pros::delay(1400);
       driveback(750,70);//lineup
       pros::delay(1400);
-      drive(5500,125);// onto platform                              center platform
+      driveForward(5500,125);// onto platform                              center platform
       pros::delay(1400);
   }
 
   else if(2450 < sensor.get_value() && sensor.get_value() < 2600) {//blue front simple
-      drive(2870,200);//flag
+      driveForward(2870,200);//flag
       pros::delay(2200);
       driveback(4820,200);//back towards platform
       pros::delay(2900);
@@ -263,19 +262,19 @@ void autonomous() {
       pros::delay(1800);
       driveback(320,80);//lineup with platform
       pros::delay(2000);
-      drive(3820,200);//drive onto blue platform
+      driveForward(3820,200);//drive onto blue platform
       pros::delay(1500);
     }
 
     else if (2650 < sensor.get_value() && sensor.get_value() < 2800) {//blue front flipper
 
-        drive(3020,175);// hit flag                                           flag
+        driveForward(3020,175);// hit flag                                           flag
         pros::delay(1700);
         driveback(3135,175);// back to starting
         pros::delay(1700);
         turnleft(800,190);//face cap
         pros::delay(900);
-        drive(1820,175);// upto cap
+        driveForward(1820,175);// upto cap
         pros::delay(1200);
         turnright(310,175);//adjust flipper
         pros::delay(900);
@@ -289,7 +288,7 @@ void autonomous() {
         turnright(760,190);//face flat cap
         //pivot_down(1000,175);//flipper down
         pros::delay(1100);
-        drive(1220,100);// drive into cap
+        driveForward(1220,100);// drive into cap
         pros::delay(1500);
         driveback(105,175);//back a little from cap
         pros::delay(1100);
@@ -297,16 +296,16 @@ void autonomous() {
         pros::delay(500);
         turnleft(385,190);// 45
         pros::delay(1100);
-        drive(2120,175);// close to middle flag
+        driveForward(2120,175);// close to middle flag
         pros::delay(2400);
         turnright(370,190);//realign to angled flag
         pros::delay(1100);
-        drive(1220,175);// into middle flag
+        driveForward(1220,175);// into middle flag
         pros::delay(1400);
     }
 
     else if(2850 < sensor.get_value() && sensor.get_value() < 3000){// red front simple
-        drive(2870,200);//flag
+        driveForward(2870,200);//flag
         pros::delay(2200);
         driveback(4820,200);//back towards platform
         pros::delay(2900);
@@ -314,7 +313,7 @@ void autonomous() {
         pros::delay(1800);
         driveback(320,80);//lineup with platform
         pros::delay(2000);
-        drive(3820,200);//drive onto blue platform
+        driveForward(3820,200);//drive onto blue platform
         pros::delay(1500);
     }
 }

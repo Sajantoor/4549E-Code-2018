@@ -4,57 +4,45 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
  void opcontrol() {
  	while (true) {
- 		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
- 		    (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
- 		    (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
- 		int left = master.get_analog(ANALOG_LEFT_Y);
- 		int right = (master.get_analog(ANALOG_RIGHT_Y) * -1);
- 		int pivot;
-   	int intake;
-   	int punch;
-    int lift;
+  		drive((master.get_analog(ANALOG_LEFT_Y)), (master.get_analog(ANALOG_RIGHT_Y)));
 
- 		if (master.get_digital(DIGITAL_R1) == 1) {
- 			pivot = 120;
- 		} else if (master.get_digital(DIGITAL_R2) == 1) {
- 			pivot = -120;
- 		} else {
- 		   pivot = 0;
- 		}
+   		if (master.get_digital(DIGITAL_R1)) {
+   			pivot.move(120);
+   		}
 
+      if (master.get_digital(DIGITAL_R2)) {
+   		  pivot.move(-120);
+   		}
 
-     if (master.get_digital(DIGITAL_L1) == 1) {
-       intake = -127;
-     } else if (master.get_digital(DIGITAL_L2) == 1) {
-        intake = 127;
-     } else {
-       intake = 0;
+     if (master.get_digital(DIGITAL_L1)) {
+        intake.move(-127);
      }
 
+      if (master.get_digital(DIGITAL_L2)) {
+        intake.move(127);
+     }
 
-      if (master.get_digital(DIGITAL_A) == 1) {
-         punch = -127;
-      } else {
-        punch = 0;
+      if (master.get_digital(DIGITAL_A)) {
+        puncher.move(127);
       }
 
-      if (master.get_digital(DIGITAL_X) == 1) {
-        lift = -127;
-      } else if (master.get_digital(DIGITAL_B) == 1) {
-        lift = 127;
-      } else {
-        lift = 0;
+      if (master.get_digital(DIGITAL_X)) {
+        lift.move(-127);
       }
 
-     left_mtr = left;
-     leftfront_mtr = left;
-     right_mtr = right;
-     rightfront_mtr = right;
-     pivot_mtr = pivot;
-     intake_mtr = intake;
-     puncher_mtr = punch;
-     lift_mtr = lift;
-     pros::delay(20);
+      if (master.get_digital(DIGITAL_B)) {
+        lift.move(127);
+      }
+      // reset motors to 0 position when button is not pressed
+      lift.move(0);
+      puncher.move(0);
+      intake.move(0);
+      pivot.move(0);
+
+      // sensor stuff
+     pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
+  		    (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
+  		    (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
 
 
      		printf("Sensor Reading: %d\n", sensor.get_value());
@@ -66,5 +54,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
       pros::lcd::print(6,"SKILLS: 2000 < 2400");
 
      	std::cout << "Sensor Reading:" << sensor.get_value();
+
+      pros::delay(20);
  	  }
  }

@@ -1,10 +1,16 @@
+#ifndef MOTOR_H_
+#define MOTOR_H_
 #include "main.h"
-extern pros::Motor left_mtr;
-extern pros::Motor leftfront_mtr;
-extern pros::Motor right_mtr;
-extern pros::Motor rightfront_mtr;
-extern pros::Motor pivot_mtr;
-extern pros::Motor intake_mtr;
-extern pros::Motor puncher_mtr;
-extern pros::ADIAnalogIn sensor;
-extern pros::Motor lift_mtr;
+
+extern Motor left_f;
+extern Motor left_b;
+extern Motor right_f;
+extern Motor right_b;
+extern Motor pivot;
+extern Motor intake;
+extern Motor puncher;
+extern Motor lift;
+extern ADIAnalogIn sensor;
+extern void drive(int leftVelocity, int rightVelocity);
+
+#endif

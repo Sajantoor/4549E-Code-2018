@@ -37,14 +37,6 @@
 #include "api.h"
 
 #define pot_port 1 //A
-extern pros::Motor left_mtr;
-extern pros::Motor leftfront_mtr;
-extern pros::Motor right_mtr;
-extern pros::Motor rightfront_mtr;
-extern pros::Motor pivot_mtr;
-extern pros::Motor intake_mtr;
-extern pros::Motor puncher_mtr;
-extern pros::ADIAnalogIn Sensor;
 
 /**
  * You should add more #includes here
