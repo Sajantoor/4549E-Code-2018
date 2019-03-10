@@ -12,6 +12,7 @@ void shoot() {
   puncher.move(127);
   delay(3000);
   puncher.move(0);
+  delay(20);
 }
 
 void liftFunc(bool up) {
@@ -19,9 +20,11 @@ void liftFunc(bool up) {
     lift.move(127);
     delay(1000);
     lift.move(0);
+    delay(20);
   } else {
     lift.move(-127);
     delay(1000);
     lift.move(0);
+    delay(20);
   }
 }

@@ -37,11 +37,14 @@ void drivePID(float target, unsigned int timeout) {
 
   bool pidLock = true;
   float targetEncoder = (target / 4 * PI * 900); // 4 inches is wheel diameter // target but in encoder units
-  float distance = 0; // Distance from target
+  float distance = targetEncoder; // Initialize distance as distance from target
   float lastDistance; // Last distance from target
   unsigned int netTimer = timeout + millis(); // intialize timer
 
-  while (netTimer > millis()) { // begin driving
+//BUG: If PID doesn't stop add "PIDlock to this while statement" or get rid of "netTimer > millis" and use only PIDlock.
+// NetTimer is only needed when handling correction and for precision in movement by slowly gettting towards the target.
+// Correction is not implemented yet so netTimer isn't needed atm.
+  while (netTimer > millis()) { // begin driving while this condition is met
     float encoderAverage = (left_f.get_position() + left_b.get_position() + right_f.get_position() + right_b.get_position() / 4);
     lastDistance = distance;
     distance = fabs(targetEncoder) - fabs(encoderAverage);
@@ -50,8 +53,9 @@ void drivePID(float target, unsigned int timeout) {
       netTimer = timeout + millis();
     }
     // i should decrease this value but +/- 15 should be fine for testing
-    if (15 >= distance && distance <= -15)   {
-      pidLock = false;
+    // if distance is inbetween 15 and -15 encoder units
+    if (15 > distance && distance < -15)   {
+      pidLock = false; // this might nto work
     }
 
     derivative = (distance - lastDistance)*Kd;
@@ -73,7 +77,8 @@ void drivePID(float target, unsigned int timeout) {
     } else {
       drive(-velocity, -velocity);
     }
-
-    delay(10);
+    // might decrease this delay value if we want more precision.
+    delay(20);
   }
 }
+// need to add correction and turning
