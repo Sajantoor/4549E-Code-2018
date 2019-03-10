@@ -27,7 +27,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
       }
 
       if (master.get_digital_new_press(DIGITAL_X)) {
-          liftFunc(true);
+        liftFunc(true);
       }
 
       if (master.get_digital_new_press(DIGITAL_B)) {
