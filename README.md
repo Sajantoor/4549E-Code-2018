@@ -92,9 +92,9 @@ There are **multiple** functions called in the autonomous function followed by d
     float velocity;
     int integralLimit = 50;
 
-    float Kp = 0.2; //0.2
-    float Kd = 0.25;		//0.27
-    float Ki = 0; //0
+    float Kp = 0.2;
+    float Kd = 0.25;
+    float Ki = 0;
     int maxSpeed = 127;
     bool forward;
     ...
