@@ -14,17 +14,15 @@
 
 ## Initialize
 > This file is used to declare global functions that are used between files, usually motors, sensors, and math constants such as PI.
+These global variables are declared in [variables.h](../master/include/variables.h) ([Global Variables & Functions](#global-variables--functions)).
 
 **Example:**
 ```cpp
+  // Motors
   Motor left_f(8, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
   Motor left_b(19, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
-  Motor right_f(5, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
-  Motor right_b(20, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
-  Motor pivot(7, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
-  Motor intake(4, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
-  Motor puncher(3, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
-  Motor lift(2, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
+  // Math constants
+  const float PI = 3.14159265358979323846;
 ```
 [initialize.cpp](../master/src/initialize.cpp)
 
@@ -78,7 +76,8 @@ There are **multiple** functions called in the autonomous function followed by d
 
 
 ## Drive
->This is a separate file with the drive functions as drive is the most important and most complicated part of our programming. This is where our PID for our drive is which is used in [autonomous](#autonomous).
+>This is a separate file with the drive functions as drive is the most important and most complicated part of our programming.
+This is where our PID for our drive is which is used in [autonomous](#autonomous).
 
 **Some of the PID code:**
 
@@ -98,8 +97,6 @@ There are **multiple** functions called in the autonomous function followed by d
     int maxSpeed = 127;
     bool forward;
     ...
-    ..
-    .
   }
 ```
 [drive.cpp](../master/src/drive.cpp)
@@ -118,5 +115,7 @@ There are **multiple** functions called in the autonomous function followed by d
   // Functions
   extern void shoot();
   extern void drivePID(float target, unsigned int timeout);
+  // Variables
+  extern const float PI;
 ```
 [variables.h](../master/include/variables.h)
