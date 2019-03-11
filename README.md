@@ -1,13 +1,20 @@
 # 4549E-Code
 ### Code for the Enver Creek Robotics Team: 4549E.
+___
+
 
 ##### Table of Contents
 ___
-⋅⋅* [Opcontrol](#Opcontrol)
-⋅⋅* [Autonomous](#Autonomous)
-⋅⋅* [Functions](#Autonomous)
+- [Initialize](#intialize)
+- [Opcontrol](#Opcontrol)
+- [Autonomous](#Autonomous)
+- [Functions](#Functions)
+- [Drive](#Drive)
+- [Global Variables & Functions](#Global Variables & Functions)
+___
 
-## initialize
+
+## Initialize
 ___
 This file is used to declare global functions that are used between files, usually motors, sensors, and math constants such as PI.
 **Example:**
@@ -21,7 +28,7 @@ This file is used to declare global functions that are used between files, usual
   Motor puncher(3, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
   Motor lift(2, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
 ```
-[initialize.cpp](../blob/master/src/initialize.cpp)
+[initialize.cpp](../master/src/initialize.cpp)
 
 
 ## Opcontrol
@@ -33,7 +40,7 @@ This code is used for controlling our robot. Some functions are called here when
       shoot();
     }
 ```
-[opcontrol.cpp](../blob/master/src/opcontrol.cpp)
+[opcontrol.cpp](../master/src/opcontrol.cpp)
 
 
 ## Autonomous
@@ -49,7 +56,7 @@ There are **multiple** functions called in the autonomous function followed by d
     drivePID(-2, 2000);
   }
 ```
-[autonomous.cpp](../blob/master/src/autonomous.cpp)
+[autonomous.cpp](../master/src/autonomous.cpp)
 
 
 ## Functions
@@ -65,7 +72,7 @@ This is where most of the functions are stored. Functions are global and can be 
       delay(20);
     }
 ```
-[functions.cpp](../blob/master/src/functions.cpp)
+[functions.cpp](../master/src/functions.cpp)
 
 
 ## Drive
@@ -93,7 +100,7 @@ This is a separate file with the drive functions as drive is the most important 
     .
   }
 ```
-[drive.cpp](../blob/master/src/drive.cpp)
+[drive.cpp](../master/src/drive.cpp)
 
 
 ## Global Variables & Functions
@@ -109,3 +116,6 @@ Global Variables & Functions are declared in a file called **variables.h**. It's
   extern void shoot();
   extern void drivePID(float target, unsigned int timeout);
 ```
+[variables.h](../master/include/variables.cpp)
+
+___
