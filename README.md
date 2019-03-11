@@ -13,7 +13,8 @@
 
 
 ## Initialize
-This file is used to declare global functions that are used between files, usually motors, sensors, and math constants such as PI.
+> This file is used to declare global functions that are used between files, usually motors, sensors, and math constants such as PI.
+
 **Example:**
 ```cpp
   Motor left_f(8, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
@@ -30,7 +31,8 @@ This file is used to declare global functions that are used between files, usual
 
 
 ## Opcontrol
-This code is used for controlling our robot. Some functions are called here when a button is pressed on the controller.
+> This code is used for controlling our robot. Some functions are called here when a button is pressed on the controller.
+
 **Example:**
 ```cpp
   if (master.get_digital(DIGITAL_A)) {
@@ -42,8 +44,9 @@ This code is used for controlling our robot. Some functions are called here when
 
 
 ## Autonomous
-The scripted autonomous, this is where we call functions to make our bot perform the autonomous.
+> The scripted autonomous, this is where we call functions to make our bot perform the autonomous.
 There are **multiple** functions called in the autonomous function followed by delays *(if necessary)*.
+
 **Example of what autonomous code looks like:**
 
 ```cpp
@@ -58,7 +61,8 @@ There are **multiple** functions called in the autonomous function followed by d
 
 
 ## Functions
-This is where most of the functions are stored. Functions are global and can be used in [opcontrol](#opcontrol) and [autonomous](#autonomous).
+>This is where most of the functions are stored. Functions are global and can be used in [opcontrol](#opcontrol) and [autonomous](#autonomous).
+
 **Example of one of our functions:**
 
 ```cpp
@@ -74,7 +78,8 @@ This is where most of the functions are stored. Functions are global and can be 
 
 
 ## Drive
-This is a separate file with the drive functions as drive is the most important and most complicated part of our programming. This is where our PID for our drive is which is used in [autonomous](#autonomous).
+>This is a separate file with the drive functions as drive is the most important and most complicated part of our programming. This is where our PID for our drive is which is used in [autonomous](#autonomous).
+
 **Some of the PID code:**
 
 ```cpp
@@ -102,7 +107,8 @@ This is a separate file with the drive functions as drive is the most important 
 
 
 ## Global Variables & Functions
-Global Variables & Functions are declared in a file called **variables.h**. It's included in all of the other files as they need to access the variables declared there.
+> Global Variables & Functions are declared in a file called **variables.h**. It's included in all of the other files as they need to access the variables declared there.
+
 **Example:**
 
 ```cpp
