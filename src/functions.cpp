@@ -28,3 +28,14 @@ void liftFunc(bool up) {
     delay(20);
   }
 }
+
+void sensorReading() {
+  pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
+  (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
+  (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
+
+   printf("Sensor Reading: %d\n", sensor.get_value());
+   pros::lcd::print(1, "Sensor Reading %d\n", sensor.get_value());
+
+   std::cout << "Sensor Reading:" << sensor.get_value();
+}

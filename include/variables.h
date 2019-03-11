@@ -18,6 +18,7 @@ extern void liftFunc(bool up);
 extern void shoot();
 extern void autonomous();
 extern void drivePID(float target, unsigned int timeout);
+extern void sensorReading();
 
 // Math constants
 extern const float PI;

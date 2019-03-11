@@ -43,20 +43,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
       pivot.move(0);
 
       // sensor stuff
-     pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
-  		    (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
-  		    (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
-
-
-     		printf("Sensor Reading: %d\n", sensor.get_value());
-     	pros::lcd::print(1, "Sensor Reading %d\n", sensor.get_value());
-     	pros::lcd::print(2,"Red Front : 0 < 400" );
-    	pros::lcd::print(3,"Red Back : 500 < 900" );
-    	pros::lcd::print(4,"Blue Front : 1000 < 1400" );
-     	pros::lcd::print(5,"Blue Back : 1500 < 1900" );
-      pros::lcd::print(6,"SKILLS: 2000 < 2400");
-
-     	std::cout << "Sensor Reading:" << sensor.get_value();
+      sensorReading();
 
       pros::delay(20);
  	  }

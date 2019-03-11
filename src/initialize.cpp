@@ -19,6 +19,13 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello 4549E!");
 	pros::c::adi_port_get_config(1); // potentiometer code?
 	pros::c::adi_port_set_config(1, pros::E_ADI_ANALOG_IN); // potentiometer code?
+
+
+	pros::lcd::print(2,"Red Front : 0 < 400" );
+	pros::lcd::print(3,"Red Back : 500 < 900" );
+	pros::lcd::print(4,"Blue Front : 1000 < 1400" );
+	pros::lcd::print(5,"Blue Back : 1500 < 1900" );
+	pros::lcd::print(6,"SKILLS: 2000 < 2400");
 }
 
 void disabled() {}
