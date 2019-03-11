@@ -2,7 +2,7 @@
 ### Code for the Enver Creek Robotics Team: 4549E.
 
 
-##### Table of Contents
+#### Table of Contents
 - [Initialize](#intialize)
 - [Opcontrol](#Opcontrol)
 - [Autonomous](#Autonomous)
@@ -28,6 +28,7 @@ This file is used to declare global functions that are used between files, usual
 [initialize.cpp](../master/src/initialize.cpp)
 
 
+
 ## Opcontrol
 This code is used for controlling our robot. Some functions are called here when a button is pressed on the controller.
 **Example:**
@@ -37,6 +38,7 @@ This code is used for controlling our robot. Some functions are called here when
     }
 ```
 [opcontrol.cpp](../master/src/opcontrol.cpp)
+
 
 
 ## Autonomous
@@ -54,6 +56,7 @@ There are **multiple** functions called in the autonomous function followed by d
 [autonomous.cpp](../master/src/autonomous.cpp)
 
 
+
 ## Functions
 This is where most of the functions are stored. Functions are global and can be used in [opcontrol](#opcontrol) and [autonomous](#autonomous).
 **Example of one of our functions:**
@@ -67,6 +70,7 @@ This is where most of the functions are stored. Functions are global and can be 
     }
 ```
 [functions.cpp](../master/src/functions.cpp)
+
 
 
 ## Drive
@@ -96,6 +100,7 @@ This is a separate file with the drive functions as drive is the most important 
 [drive.cpp](../master/src/drive.cpp)
 
 
+
 ## Global Variables & Functions
 Global Variables & Functions are declared in a file called **variables.h**. It's included in all of the other files as they need to access the variables declared there.
 **Example:**
@@ -109,4 +114,3 @@ Global Variables & Functions are declared in a file called **variables.h**. It's
   extern void drivePID(float target, unsigned int timeout);
 ```
 [variables.h](../master/include/variables.cpp)
-___
