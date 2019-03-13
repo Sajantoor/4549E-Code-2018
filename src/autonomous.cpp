@@ -14,53 +14,53 @@
 */
 
 
-void driveForward(int distance, int velocity) {
-    left_b.move_relative(distance, velocity);
-    left_f.move_relative(distance, velocity);
-    right_b.move_relative(-distance, -velocity);
-    right_f.move_relative(-distance, -velocity);
-  }
-
-  void driveback(int distance, int velocity) {
-      left_b.move_relative(-distance, -velocity);
-      left_f.move_relative(-distance, -velocity);
-      right_b.move_relative(distance, velocity);
-      right_f.move_relative(distance, velocity);
-    }
-
-    void pivot_up (int distance, int velocity) {
-      pivot.move_relative(distance,velocity);
-    }
-
-    void pivot_down(int distance,int velocity) {
-      pivot.move_relative(-distance,-velocity);
-    }
-
-    void turnright(int distance,int velocity) {
-      left_b.move_relative(distance, velocity);
-      left_f.move_relative(distance, velocity);
-      right_b.move_relative(distance, velocity);
-      right_f.move_relative(distance, velocity);
-    }
-
-    void turnleft(int distance,int velocity) {
-     left_b.move_relative(-distance, -velocity);
-     left_f.move_relative(-distance, -velocity);
-     right_b.move_relative(-distance, -velocity);
-     right_f.move_relative(-distance, -velocity);
-    }
-
-
-    void intakeFunc (int distance, int velocity) {
-      intake.move_relative(distance,velocity);
-    }
-
-    void shoot(int distance,int velocity) {
-      puncher .move_relative(-distance,-velocity);
-    }
+// void driveForward(int distance, int velocity) {
+//     left_b.move_relative(distance, velocity);
+//     left_f.move_relative(distance, velocity);
+//     right_b.move_relative(-distance, -velocity);
+//     right_f.move_relative(-distance, -velocity);
+//   }
+//
+//   void driveback(int distance, int velocity) {
+//       left_b.move_relative(-distance, -velocity);
+//       left_f.move_relative(-distance, -velocity);
+//       right_b.move_relative(distance, velocity);
+//       right_f.move_relative(distance, velocity);
+//     }
+//
+//     void pivot_up (int distance, int velocity) {
+//       pivot.move_relative(distance,velocity);
+//     }
+//
+//     void pivot_down(int distance,int velocity) {
+//       pivot.move_relative(-distance,-velocity);
+//     }
+//
+//     void turnright(int distance,int velocity) {
+//       left_b.move_relative(distance, velocity);
+//       left_f.move_relative(distance, velocity);
+//       right_b.move_relative(distance, velocity);
+//       right_f.move_relative(distance, velocity);
+//     }
+//
+//     void turnleft(int distance,int velocity) {
+//      left_b.move_relative(-distance, -velocity);
+//      left_f.move_relative(-distance, -velocity);
+//      right_b.move_relative(-distance, -velocity);
+//      right_f.move_relative(-distance, -velocity);
+//     }
+//
+//
+//     void intakeFunc (int distance, int velocity) {
+//       intake.move_relative(distance,velocity);
+//     }
+//
+//     void shoot(int distance,int velocity) {
+//       puncher .move_relative(-distance,-velocity);
+//     }
 
   void autonomous() {
-    drivePID(2, 2000); 
+    drivePID(6, 2000);
   }
 
 // void autonomous() {

@@ -22,6 +22,6 @@ extern void sensorReading();
 
 // Math constants
 extern const float PI;
-
+extern int up;
 
 #endif

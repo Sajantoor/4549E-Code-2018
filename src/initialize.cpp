@@ -12,6 +12,8 @@ Motor puncher(3, E_MOTOR_GEARSET_18, true, E_MOTOR_ENCODER_COUNTS);
 Motor lift(2, E_MOTOR_GEARSET_18, false, E_MOTOR_ENCODER_COUNTS);
 // Math constants
 const float PI = 3.14159265358979323846;
+// variables
+int up = true;
 
 
 void initialize() {

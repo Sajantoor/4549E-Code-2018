@@ -1,6 +1,12 @@
 #include "main.h"
 #include "variables.h"
 
+void drive(int leftVelocity, int rightVelocity) {
+  left_f.move(leftVelocity);
+  left_b.move(leftVelocity);
+  right_f.move(rightVelocity);
+  right_b.move(rightVelocity);
+}
 // resets encoder counts to 0
 void reset() {
   left_f.tare_position();
@@ -31,8 +37,10 @@ void drivePID(float target, unsigned int timeout) {
 
   if (target > 0) {
     bool forward = true;
+    pros::lcd::print(2,"True");
   } else if (target < 0) {
     bool forward = false;
+    pros::lcd::print(2,"False");
   }
 
   bool pidLock = true;

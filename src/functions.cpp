@@ -1,30 +1,24 @@
 #include "main.h"
 #include "variables.h"
 
-void drive(int leftVelocity, int rightVelocity) {
-  left_f.move(leftVelocity);
-  left_b.move(leftVelocity);
-  right_f.move(rightVelocity);
-  right_b.move(rightVelocity);
-}
-
 void shoot() {
   puncher.move(127);
-  delay(3000);
+  delay(500);
   puncher.move(0);
   delay(20);
 }
 
-void liftFunc(bool up) {
-  if (up) {
-    lift.move(127);
-    delay(1000);
-    lift.move(0);
-    delay(20);
-  } else {
+void liftFunc(bool value) {
+  if (value) {
     lift.move(-127);
-    delay(1000);
+    delay(360);
     lift.move(0);
+    value = false;
+    delay(20);
+    lift.move(127);
+    delay(360);
+    lift.move(0);
+    value = true;
     delay(20);
   }
 }
